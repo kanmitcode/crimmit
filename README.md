@@ -97,12 +97,12 @@ Kindly use the postman collection (Crimmit.postman_collection.json) attached to 
 
 The technological resources used:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com).
-- Database: [MongoDB](https://www.mongodb.com/docs/manual/administration/install-community/).
-- Queuing: [RabbitMQ](https://www.rabbitmq.com/).
-- Protocol: [gRPC](https://grpc.io/).
-- Caching: [Redis] (https://redis.io/).
-- Containerization: [Docker] (https://docs.docker.com/compose/).
+- Framework: [NestJS](https://docs.nestjs.com)
+- Database: [MongoDB](https://www.mongodb.com/docs/manual/administration/install-community/)
+- Queuing: [RabbitMQ](https://www.rabbitmq.com/)
+- Protocol: [gRPC](https://grpc.io/)
+- Caching: [Redis] (https://redis.io/)
+- Containerization: [Docker] (https://docs.docker.com/compose/)
 
 
 ## Stay in touch
