@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/crimmit-task/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/crimmit-task/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/crimmit-task",
+  "projects": {
+    "crimmit-task": {
+      "type": "application",
+      "root": "apps/crimmit-task",
+      "entryFile": "main",
+      "sourceRoot": "apps/crimmit-task/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/crimmit-task/tsconfig.app.json"
+      }
+    },
+    "owner-service": {
+      "type": "application",
+      "root": "apps/owner-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/owner-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/owner-service/tsconfig.app.json"
+      }
+    },
+    "products-service": {
+      "type": "application",
+      "root": "apps/products-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/products-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/products-service/tsconfig.app.json"
+      }
+    },
+    "order-service": {
+      "type": "application",
+      "root": "apps/order-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/order-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/order-service/tsconfig.app.json"
+      }
+    }
+  }
+}

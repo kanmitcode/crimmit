@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package owner;
+
+service OwnerService {
+  rpc GetOwner(GetOwnerRequest) returns (GetOwnerResponse);
+  rpc UpdateOwner(UpdateOwnerRequest) returns (UpdateOwnerResponse);
+}
+
+message GetOwnerRequest {
+  string id = 1;
+}
+
+message GetOwnerResponse {
+  string id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string email = 4;
+  string address = 5;
+  string phone = 6;
+}
+
+message UpdateOwnerRequest {
+  string id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string email = 4;
+  string address = 5;
+  string phone = 6;
+}
+
+message UpdateOwnerResponse {
+  string id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string email = 4;
+  string address = 5;
+  string phone = 6;
+}
