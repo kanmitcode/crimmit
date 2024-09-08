@@ -3,7 +3,6 @@ import { Types } from 'mongoose';
 
 export class CreateOrderDto {
   @IsString()
-  @IsNotEmpty()
   orderId: string | undefined;
 
   @IsArray()

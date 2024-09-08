@@ -7,11 +7,6 @@ import { Order, OrderDocument } from './schemas/order.schema';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
 
-// import {
-//   ProductServiceClient,
-//   ProductDetail,
-// } from '../../shared-proto/src/product.interface';
-
 import {
   ProductServiceClient,
   ProductDetail,
@@ -21,7 +16,6 @@ import {
 export class OrderService {
   private productServiceClient: ProductServiceClient;
   constructor(
-    // private productServiceClient: ProductServiceClient,
     @InjectModel(Order.name) private orderModel: Model<OrderDocument>,
     @Inject(CACHE_MANAGER) private cacheManager: Cache,
     @Inject('PRODUCT_PACKAGE') private readonly client: ClientGrpc,
@@ -30,12 +24,10 @@ export class OrderService {
       this.client.getService<ProductServiceClient>('ProductService');
   }
 
-  // onModuleInit() {
-  //   this.productServiceClient =
-  //     this.client.getService<ProductServiceClient>('ProductService');
-  // }
-
   async createOrder(createOrderDto: CreateOrderDto): Promise<Order> {
+    createOrderDto.orderId = (
+      Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000
+    ).toString();
     const order = new this.orderModel(createOrderDto);
     const productIdsAsStrings = createOrderDto.productIds.map((id) =>
       id.toString(),

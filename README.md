@@ -18,7 +18,7 @@ interact with a MongoDB database, and the communication between these services w
 be handled using two different protocols: RabbitMQ and gRPC. Additionally, the Order
 service will implement a caching mechanism for product data.
 
-## To develop new Project and install dependencies
+## To develop new Project and install dependencies (optional)
 
 ```bash
 # create a nestJS app - crimmit
@@ -95,14 +95,17 @@ Kindly use the postman collection (Crimmit.postman_collection.json) attached to 
 
 ## Resources
 
-The technological resources used:
+The technological tools/resources used:
 
+- Machine: [Macbook Pro - Apple M2 Pro]
+- IDE: [Visual Studio Code](https://code.visualstudio.com/download)
 - Framework: [NestJS](https://docs.nestjs.com)
 - Database: [MongoDB](https://www.mongodb.com/docs/manual/administration/install-community/)
 - Queuing: [RabbitMQ](https://www.rabbitmq.com/)
 - Protocol: [gRPC](https://grpc.io/)
-- Caching: [Redis] (https://redis.io/)
-- Containerization: [Docker] (https://docs.docker.com/compose/)
+- Caching: [Redis](https://redis.io/)
+- Containerization: [Docker](https://docs.docker.com/compose/)
+- VSCode Docker Extension: [Docker v1.29.2](ms-azuretools.vscode-docker)
 
 
 ## Stay in touch
