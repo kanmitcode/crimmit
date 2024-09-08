@@ -93,11 +93,14 @@ Kindly use the postman collection (Crimmit.postman_collection.json) attached to 
 - For product-service: http://localhost:3002/products
 - For order-service: http://localhost:3003/orders
 
+## Service Diagram
+<img src="crimmit.drawio.png" alt="crimmit-service-diagram">
+
 ## Resources
 
 The technological tools/resources used:
 
-- Machine: [Macbook Pro - Apple M2 Pro]
+- System: [Macbook Pro - Apple M2 Pro]()
 - IDE: [Visual Studio Code](https://code.visualstudio.com/download)
 - Framework: [NestJS](https://docs.nestjs.com)
 - Database: [MongoDB](https://www.mongodb.com/docs/manual/administration/install-community/)
