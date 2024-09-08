@@ -5,10 +5,22 @@ import { OrderService } from './order-service.service';
 import { OrderController } from './order-service.controller';
 import { Order, OrderSchema } from './schemas/order.schema';
 import { RedisClientOptions } from 'redis';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Order.name, schema: OrderSchema }]),
+    ClientsModule.register([
+      {
+        name: 'PRODUCT_PACKAGE',
+        transport: Transport.GRPC,
+        options: {
+          package: 'product',
+          protoPath: 'src/proto/product.proto',
+          url: 'product-service:50051',
+        },
+      },
+    ]),
     CacheModule.register<RedisClientOptions>({
       store: 'redis',
       socket: {
@@ -20,5 +32,6 @@ import { RedisClientOptions } from 'redis';
   ],
   controllers: [OrderController],
   providers: [OrderService],
+  exports: [OrderService],
 })
 export class OrderModule {}

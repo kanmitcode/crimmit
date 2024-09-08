@@ -1,22 +1,22 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/crimmit-task/src",
+  "sourceRoot": "apps/crimmit/src",
   "compilerOptions": {
     "deleteOutDir": true,
     "webpack": true,
-    "tsConfigPath": "apps/crimmit-task/tsconfig.app.json"
+    "tsConfigPath": "apps/crimmit/tsconfig.app.json"
   },
   "monorepo": true,
-  "root": "apps/crimmit-task",
+  "root": "apps/crimmit",
   "projects": {
-    "crimmit-task": {
+    "crimmit": {
       "type": "application",
-      "root": "apps/crimmit-task",
+      "root": "apps/crimmit",
       "entryFile": "main",
-      "sourceRoot": "apps/crimmit-task/src",
+      "sourceRoot": "apps/crimmit/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/crimmit-task/tsconfig.app.json"
+        "tsConfigPath": "apps/crimmit/tsconfig.app.json"
       }
     },
     "owner-service": {
@@ -43,7 +43,9 @@
       "entryFile": "main",
       "sourceRoot": "apps/order-service/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/order-service/tsconfig.app.json"
+        "tsConfigPath": "apps/order-service/tsconfig.app.json",
+        "assets": ["**/**/*.proto", "**/**/*.interface"],
+        "watchAssets": true
       }
     }
   }

@@ -10,7 +10,7 @@ services:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
     networks:
-      - my-network
+      - app-network
   
   mongodb:
     image: mongo:latest
@@ -18,7 +18,7 @@ services:
     ports:
       - "27017:27017"
     networks:
-      - my-network
+      - app-network
   
   owner-service:
     build: ./owner-service
@@ -32,7 +32,7 @@ services:
       - rabbitmq
       - mongodb
     networks:
-      - my-network
+      - app-network
     volumes:
       - ./owner-service:/app
     command: npm run start:dev
@@ -41,6 +41,7 @@ services:
     build: ./product-service
     ports:
       - "3002:3002"
+      - '50051:50051' # gRPC operations
     environment:
       - NODE_ENV=development
       - RABBITMQ_URI=amqp://rabbitmq:5672
@@ -49,7 +50,7 @@ services:
       - rabbitmq
       - mongodb
     networks:
-      - my-network
+      - app-network
     volumes:
       - ./product-service:/app
       - ./product-service:/proto
@@ -57,6 +58,9 @@ services:
 
   order-service:
     build: ./order-service
+    volumes:
+      - ./order-service:/app
+      - ./order-service:/proto
     ports:
       - "3003:3003"
     environment:
@@ -64,13 +68,11 @@ services:
       - MONGO_URI=mongodb://mongodb:27017/crimmitdb
     depends_on:
       - mongodb
+      - product-service
     networks:
-      - my-network
-    volumes:
-      - ./order-service:/app
-      - ./order-service:/proto
+      - app-network
     command: npm run start:dev
 
 networks:
-  my-network:
+  app-network:
     driver: bridge

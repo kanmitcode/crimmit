@@ -5,6 +5,7 @@ import { Product, ProductDocument } from './schemas/product.schema';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { AmqpConnection, RabbitSubscribe } from '@golevelup/nestjs-rabbitmq';
+import { GrpcMethod } from '@nestjs/microservices';
 
 @Injectable()
 export class ProductService {
@@ -41,6 +42,7 @@ export class ProductService {
     return updatedProduct;
   }
 
+  @GrpcMethod('ProductService', 'GetProduct')
   async getProduct(id: string): Promise<Product> {
     const product = await this.productModel.findById(id).exec();
     if (!product) {

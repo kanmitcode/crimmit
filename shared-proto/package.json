@@ -1,0 +1,26 @@
+{
+  "name": "shared-proto",
+  "version": "1.0.0",
+  "description": "Shared proto files for gRPC communication between microservices",
+  "main": "src/index.ts",
+  "types": "src/index.d.ts",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "author": "Oyekanmi Owolabi",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.6.13",
+    "grpc-tools": "^1.11.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
