@@ -12,7 +12,7 @@
 
 ## Task Description
 
-You are tasked with creating a microservices architecture using NestJS. The
+Tasked with creating a microservices architecture using NestJS. The
 architecture will consist of three services: Owner, Products, and Order. Each service will
 interact with a MongoDB database, and the communication between these services will
 be handled using two different protocols: RabbitMQ and gRPC. Additionally, the Order
